@@ -4,7 +4,11 @@ Inventory Management System allowing storing products in a database file. 100% h
 # Architecture
 ## Application flow
 
+<img width="1254" height="690" alt="image" src="https://github.com/user-attachments/assets/6604eb5e-0b11-4729-a2d7-a359e48479c3" />
+
 ## Database Diagram
+
+<img width="632" height="399" alt="image" src="https://github.com/user-attachments/assets/286b9bb4-a93f-404c-b5ed-ddb8279934f4" />
 
 # Updates
 v1.1
