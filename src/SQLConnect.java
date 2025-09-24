@@ -125,15 +125,19 @@ public class SQLConnect {
     public static boolean authenticate (String _username, String _password) {
         Boolean auth = false;
         String url = "jdbc:sqlite:warehouse.db";
-        String authentication = "SELECT * from users where username = ? and password = ?";
+        String authentication = "SELECT * from users where username = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(authentication);
             String encodedPassword = Base64.getEncoder().encodeToString(_password.getBytes());
             stmt.setString(1, _username);
-            stmt.setString(2, encodedPassword);
+            //stmt.setString(2, encodedPassword);
             ResultSet res = stmt.executeQuery();
             if(res.next()) {
-                auth = true;
+                if(res.getString("password").equals(encodedPassword)) {
+                    auth = true;
+                } else {
+                    auth = false;
+                }
             } else {
                 auth = false;
             }
